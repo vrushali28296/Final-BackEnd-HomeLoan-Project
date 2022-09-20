@@ -26,7 +26,7 @@ public class Documents {
 	 private String status;
 		
    @Lob
-	private byte[] address_Proof;
+	private byte[] addressProof;
 	
 	@Lob
 	private byte[] pancard;

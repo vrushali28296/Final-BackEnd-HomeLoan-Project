@@ -34,7 +34,7 @@ public class ProfessionController {
 	@PostMapping(value = "/saveProfessiondetails/{customerid}")
 	public ResponseEntity<ProfessionDetails> saveProfession(@RequestBody ProfessionDetails professiondetails,@PathVariable int customerid){
 		
-	System.out.println(professiondetails.getAnnual_salary()+"............");
+	System.out.println(professiondetails.getAnnualsalary()+"............");
 	System.out.println(professiondetails.getDesignation());
 		Customer c=cr.findByCustomerid(customerid);
 		
@@ -43,10 +43,10 @@ public class ProfessionController {
 		
 			
 //			professionservice.saveProfession(professiondetails);
-			c.getProfession().setAnnual_salary(professiondetails.getAnnual_salary());
+			c.getProfession().setAnnualsalary(professiondetails.getAnnualsalary());
 			c.getProfession().setDesignation(professiondetails.getDesignation());
-			c.getProfession().setProffession_name(professiondetails.getProffession_name());
-			c.getProfession().setProffession_type(professiondetails.getProffession_type());
+			c.getProfession().setProffessionname(professiondetails.getProffessionname());
+			c.getProfession().setProffessiontype(professiondetails.getProffessiontype());
 			cr.save(c);
 			return new ResponseEntity<ProfessionDetails>( HttpStatus.CREATED);
 		

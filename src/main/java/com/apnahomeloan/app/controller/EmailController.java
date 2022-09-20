@@ -49,6 +49,49 @@ public class EmailController {
 	}
 	
 	
+	@PostMapping("/sendSanctionMail/{toEmail}")
+	public void sendSanctionMail(@PathVariable String toEmail) 
+	{
+		//setFromEmail(fromEmail,toEmail);
+		
+		try {
+			es.sendSanctionMail(toEmail);
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			System.out.println("Mail NOT Sent");
+			//return "Mail NOT Sent...";
+		}
+		System.out.println("Mail Sent Successfully...");
+		//return "Mail Sent Successfully...";
+	}
+	
+	
+	@PostMapping("/sendRejectedEmail/{toEmail}")
+	public void sendRejectedEmail(@PathVariable String toEmail) 
+	{
+		//setFromEmail(fromEmail,toEmail);
+		
+		try {
+			es.sendRejectedEmail(toEmail);
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			System.out.println("Mail NOT Sent");
+			//return "Mail NOT Sent...";
+		}
+		System.out.println("Mail Sent Successfully...");
+		//return "Mail Sent Successfully...";
+	}
+	
+	
+	
+	
+	
+	
+	
 	@PostMapping (value = "/sendWithAttachment/{toEmail}/+", consumes = MediaType.ALL_VALUE)
 	public String sendMailWithAttachment(@RequestPart(required = true, value = "attachment") MultipartFile file,
 			@RequestPart("email")String email) throws IOException
@@ -76,13 +119,13 @@ public class EmailController {
 	
 	
 	
-	@PostMapping(value = "/sendsanctionletter")
+	@PostMapping(value = "/sendsanctionletter", consumes = MediaType.ALL_VALUE)
 	public String sendSanctionLetter(@RequestPart("sanctionLetter") MultipartFile sanctionLetter,
 			@RequestPart("customer") String customer) throws JsonMappingException, JsonProcessingException {
 
 		ObjectMapper objectMapper = new ObjectMapper();
 		Customer customer1 = objectMapper.readValue(customer, Customer.class);
-
+		System.out.println("cust"+customer1);
 		try {
 			es.sendSanctionLetter(customer1, sanctionLetter);
 		} catch (Exception e1) {

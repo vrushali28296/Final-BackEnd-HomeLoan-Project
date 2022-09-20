@@ -60,7 +60,7 @@ public class ApplicantService implements ApplicantServiceI{
 			
 			try
 			{
-				if(app.getCibil().getCibil_Status().equalsIgnoreCase("Approve"))
+				if(app.getCibil().getCibilStatus().equalsIgnoreCase("Approve"))
 				{
 					approvedlist.add(app);
 				}

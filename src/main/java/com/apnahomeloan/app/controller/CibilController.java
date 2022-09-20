@@ -27,13 +27,13 @@ public class CibilController {
 	@Autowired
 	private ApplicantServiceI asi;
 
-	@PostMapping("/saveCibil/{cibil_Score}/{applicantid}")
-	public String saveCibil(@PathVariable int cibil_Score, @PathVariable int applicantid) {
+	@PostMapping("/saveCibil/{cibilScore}/{applicantid}")
+	public String saveCibil(@PathVariable int cibilScore, @PathVariable int applicantid) {
 		System.out.println("in cibil controller");
 
-		System.out.println(cibil_Score+"--------------------------------------------------------"+applicantid);
+		System.out.println(cibilScore+"--------------------------------------------------------"+applicantid);
 		System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-		Cibil cibil = csi.saveCibil(cibil_Score, applicantid);
+		Cibil cibil = csi.saveCibil(cibilScore, applicantid);
 
 		return "kk";
 	}

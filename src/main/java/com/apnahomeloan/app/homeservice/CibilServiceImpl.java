@@ -44,12 +44,12 @@ public class CibilServiceImpl implements CibilServiceInterface {
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
 	    Date date = new Date();  
-		c.setCibil_Score_Date_Time(formatter.format(date));
-		c.setCibil_Remark("PENDING");
+		c.setCibilScoreDateTime(formatter.format(date));
+		c.setCibilRemark("PENDING");
 		
 		if(cibilScore>=750) {
-			c.setCibil_Score(cibilScore);
-			c.setCibil_Status("Approve");
+			c.setCibilScore(cibilScore);
+			c.setCibilStatus("Approve");
 			applicant.setCibil(c);
 			cr.save(c); //cibil saved
 			apr.save(applicant); //customer save
@@ -58,8 +58,8 @@ public class CibilServiceImpl implements CibilServiceInterface {
 		}
 		else
 		{
-			c.setCibil_Score(cibilScore);
-			c.setCibil_Status("Rejrcted");
+			c.setCibilScore(cibilScore);
+			c.setCibilStatus("Rejrcted");
 			applicant.setCibil(c);
 			cr.save(c);
 			apr.save(applicant);

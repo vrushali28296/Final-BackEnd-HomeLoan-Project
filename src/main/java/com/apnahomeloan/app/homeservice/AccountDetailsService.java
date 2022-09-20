@@ -34,9 +34,9 @@ public class AccountDetailsService implements AccountDetailsI {
 		if(ac.isPresent())
 		{
 			AccountDetails a=ac.get();
-			a.setAccount_holdername(account.getAccount_holdername());
-			a.setAccount_type(account.getAccount_type());
-			a.setIfsc_code(account.getIfsc_code());
+			a.setAccountholdername(account.getAccountholdername());
+			a.setAccounttype(account.getAccounttype());
+			a.setIfsccode(account.getIfsccode());
 			return adr.save(a);
 		}
 	

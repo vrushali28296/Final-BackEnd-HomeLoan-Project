@@ -38,10 +38,10 @@ public class PropertyDetailsController {
 	//PropertyDetails propertydet=	propertydetailsserviei.savePropertyDetails(propertydetails);
 	
 	//c.setPropertyDetails(propertydet);
-		c.getPropertyDetails().setProperty_address(propertydetails.getProperty_address());
-		c.getPropertyDetails().setProperty_area(propertydetails.getProperty_area());
-		c.getPropertyDetails().setProperty_price(propertydetails.getProperty_price());
-		c.getPropertyDetails().setProperty_type(propertydetails.getProperty_type());
+		c.getPropertyDetails().setPropertyaddress(propertydetails.getPropertyaddress());
+		c.getPropertyDetails().setPropertyarea(propertydetails.getPropertyarea());
+		c.getPropertyDetails().setPropertyprice(propertydetails.getPropertyprice());
+		c.getPropertyDetails().setPropertytype(propertydetails.getPropertytype());
 	cr.save(c);
 	return new ResponseEntity<PropertyDetails>(HttpStatus.CREATED);
 		

@@ -22,13 +22,13 @@ public class Applicant {
   @GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer applicantid;
   
-	private String applicant_name;
+	private String applicantname;
  
-	private String applicant_occupation;
+	private String applicantoccupation;
   
-	private String applicant_pancard;
+	private String applicantpancard;
   
-	private String applicant_email;
+	private String applicantemail;
 	
   @OneToOne(cascade =CascadeType.ALL)
   private Cibil cibil;

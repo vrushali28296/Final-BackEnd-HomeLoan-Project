@@ -37,9 +37,9 @@ public class AccountDetailsController {
 		//AccountDetails ad = adi.saveAccount(account);
 		
 		c.getAccountDetails().setAccounntNo(account.getAccounntNo());
-		c.getAccountDetails().setAccount_holdername(account.getAccount_holdername());
-		c.getAccountDetails().setAccount_type(account.getAccount_type());
-		c.getAccountDetails().setIfsc_code(account.getIfsc_code());
+		c.getAccountDetails().setAccountholdername(account.getAccountholdername());
+		c.getAccountDetails().setAccounttype(account.getAccounttype());
+		c.getAccountDetails().setIfsccode(account.getIfsccode());
 		
 		cr.save(c);
 		return new ResponseEntity<AccountDetails>( HttpStatus.OK);

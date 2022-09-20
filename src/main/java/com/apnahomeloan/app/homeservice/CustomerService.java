@@ -36,13 +36,13 @@ public class CustomerService implements CustomerServiceI
 		if(cu.isPresent())
 		{
 			Customer ct=cu.get();
-			ct.setCustomer_address(c.getCustomer_address());
-			ct.setCustomer_age(c.getCustomer_age());
-			ct.setCustomer_dob(c.getCustomer_dob());
-			ct.setCustomer_email(c.getCustomer_email());
-			ct.setCustomer_gender(c.getCustomer_gender());
-			ct.setCustomer_mobno(c.getCustomer_mobno());
-			ct.setCustomer_name(c.getCustomer_name());
+			ct.setCustomeraddress(c.getCustomeraddress());
+			ct.setCustomerage(c.getCustomerage());
+			ct.setCustomerdob(c.getCustomerdob());
+			ct.setCustomeremail(c.getCustomeremail());
+			ct.setCustomergender(c.getCustomergender());
+			ct.setCustomermobno(c.getCustomermobno());
+			ct.setCustomername(c.getCustomername());
 //			ct.setCustomer_proposedLoanAmt(c.getCustomer_proposedLoanAmt());
 //			ct.setCustomer_totalLoanAmt(c.getCustomer_totalLoanAmt());
 			ct.setAccountDetails(c.getAccountDetails());

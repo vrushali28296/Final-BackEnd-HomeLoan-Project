@@ -26,20 +26,20 @@ public class Customer
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer customerid;
 	
-	private Integer customer_age;
+	private Integer customerage;
 	
-	private String customer_name;
+	private String customername;
 	
-	private String customer_gender;
+	private String customergender;
 	
-	private String customer_email;
+	private String customeremail;
 	
-	private String customer_dob;
+	private String customerdob;
 	
-	private String customer_address;
+	private String customeraddress;
 	
 	
-	private String customer_mobno;
+	private String customermobno;
 	
 	
 	@OneToOne(cascade = CascadeType.ALL)

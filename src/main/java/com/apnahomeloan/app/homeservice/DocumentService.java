@@ -59,7 +59,7 @@ public class DocumentService implements DocumentServiceI{
 		{
 			Documents document1=op.get();
 			
-			document1.setAddress_Proof(document.getAddress_Proof());
+			document1.setAddressProof(document.getAddressProof());
 			document1.setPancard(document.getPancard());
 			document1.setAadharcard(document.getAadharcard());
 			document1.setSignature(document.getSignature());

@@ -23,11 +23,11 @@ public class AccountDetails {
 	
 	private String accounntNo;
 	
-	private String account_type;
+	private String accounttype;	
 	
-	private String account_holdername;
+	private String accountholdername;
 	
-	private String ifsc_code; 
+	private String ifsccode; 
 }
 
 //

@@ -54,7 +54,7 @@ public class DocumentController {
 		Customer c=cr.findByCustomerid(customerid);
 		
 		Documents d=new Documents();
-		d.setAddress_Proof(addressProof.getBytes());
+		d.setAddressProof(addressProof.getBytes());
 		d.setPancard(pancard.getBytes());
 		d.setAadharcard(aadharcard.getBytes());
 		d.setSignature(signature.getBytes());
@@ -71,7 +71,7 @@ public class DocumentController {
 	
 				dsi.saveDocuments(d);
 		c.getDocuments().setAadharcard(aadharcard.getBytes());
-		c.getDocuments().setAddress_Proof(addressProof.getBytes());
+		c.getDocuments().setAddressProof(addressProof.getBytes());
 		c.getDocuments().setBankcheck(bankcheck.getBytes());
 		c.getDocuments().setIncometax(incometax.getBytes());
 		c.getDocuments().setPancard(pancard.getBytes());
@@ -122,7 +122,7 @@ public class DocumentController {
 			) throws IOException
 	{
 		Documents document= new Documents();
-		document.setAddress_Proof(addressProof.getBytes());
+		document.setAddressProof(addressProof.getBytes());
 		document.setPancard(pancard.getBytes());
 		document.setAadharcard(aadharcard.getBytes());
 		document.setSignature(signature.getBytes());

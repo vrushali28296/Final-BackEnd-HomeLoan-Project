@@ -25,9 +25,9 @@ public class ProfessionDetails {
 	
 	private String designation;
 
-	private String proffession_name;
+	private String proffessionname;
 	
-	private String proffession_type;
+	private String proffessiontype;
 
-	private double annual_salary;
+	private double annualsalary;
 }

@@ -128,7 +128,7 @@ public class EmailServiceImpl implements EmailServiceI
 
 	@Override
 	public String sendSanctionLetter(Customer customer, MultipartFile sanctionLetter) {
-		String body = "<b>Dear " + customer.getCustomer_name() + "</b>,"
+		String body = "<b>Dear " + customer.getCustomername() + "</b>,"
 				+ "<br>We thank you for choosing APNA HOME LOAN as your financier for Loan. We are "
 				+ "pleased to inform you that with reference to the application, we have in-principle sanctioned you a loan facility, the"
 				+ "details of which are mensioned in ataached sanction Letter. "
@@ -139,8 +139,9 @@ public class EmailServiceImpl implements EmailServiceI
 				// +"<br>Loan Officer,"
 				+ "<br>APNA HOME LOAN," + "<br>Pune.";
 
-		String sendto = customer.getCustomer_email();
-		String subject = "Loan disbursement";
+		String sendto = customer.getCustomeremail();
+		System.out.println(customer.getCustomeremail());
+		String subject = "Loan Approval";
 
 		MimeMessage meMimeMsg = jms.createMimeMessage();
 
@@ -153,10 +154,10 @@ public class EmailServiceImpl implements EmailServiceI
 			helper.setText(body, true);
 
 			FileSystemResource resource = new FileSystemResource(
-					new File("path of the file"));
+					new File("C:/Users/SHIVA/Downloads/Home-Loan-for-women.jpg"));
 			helper.addInline("image001", resource);
 
-//			  FileSystemResource file=new FileSystemResource("C:\\Users\\HP\\Downloads\\Spring Boot Notes\\Untitled.jpg");
+//			  FileSystemResource file=new FileSystemResource("C:/Users/SHIVA/Downloads/Home-Loan-for-women.jpg");
 //			  helper.addAttachment(file.getFilename(), file);
 			jms.send(meMimeMsg);
 
@@ -166,5 +167,71 @@ public class EmailServiceImpl implements EmailServiceI
 
 		return "Mail Send Successfully";
 	}
+
+	
+	
+	
+	@Override
+	public void sendSanctionMail(String toEmail) {
+		try {
+			SimpleMailMessage smm=new SimpleMailMessage();
+			smm.setFrom("shirishpatil089@gmail.com");
+			smm.setTo(toEmail);
+			
+			
+			String body = "Dear Customer" + " "+ ","
+					+ "We thank you for choosing APNA HOME LOAN as your financier for Loan. We are "
+					+ "pleased to inform you that with reference to the application, we have in-principle sanctioned you a loan facility, the"
+					+ "details of which are mensioned in ataached sanction Letter. "
+
+					+ "If you accept Saction letter then sign the saction letter and submit it to the office"
+
+					+ "" + "Best Regards,"
+					// +"<br>Loan Officer,"
+					+ "APNA HOME LOAN," + "Pune.";
+
+			
+			String subject = " Home Loan Sanction Mail";
+			smm.setSubject(subject);
+			smm.setText(body);
+			
+			jms.send(smm);
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			System.out.println("NOT sent");
+		}
+		System.out.println("Sent");	
+	}
+
+	@Override
+	public void sendRejectedEmail(String toEmail) {
+		try {
+			SimpleMailMessage smm=new SimpleMailMessage();
+			smm.setFrom("shirishpatil089@gmail.com");
+			smm.setTo(toEmail);
+			
+			
+			String body = "Dear Customer" + " "+ ","
+					+ "It gives us a pain to apprise you that your request for the loan of 5 Million dollars has been rejected by the board of directors of our bank. The main reason for this rejection was found to be the short amount of salary you are earning, being a job holder in a government service. As you have no source of income other than this job, and the bank has strong reservations over your way of returning this huge amount of loan."
+					
+					+ "" + "Best Regards,"
+					// +"<br>Loan Officer,"
+					+ "APNA HOME LOAN," + "Pune.";
+
+			
+			String subject = " Home Loan Rejected Email";
+			smm.setSubject(subject);
+			smm.setText(body);
+			
+			jms.send(smm);
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			System.out.println("NOT sent");
+		}
+		System.out.println("Sent");		}
 
 }

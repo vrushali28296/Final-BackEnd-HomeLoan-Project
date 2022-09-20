@@ -14,4 +14,8 @@ public interface EmailServiceI
 
 	public String sendSanctionLetter(Customer customer1, MultipartFile sanctionLetter);
 
+	public void sendSanctionMail(String toEmail);
+
+	public void sendRejectedEmail(String toEmail);
+
 }

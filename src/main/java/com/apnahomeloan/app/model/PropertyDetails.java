@@ -24,13 +24,13 @@ public class PropertyDetails {
 	
 	private Integer propertyID;
 	
-	private String property_type;
+	private String propertytype;
 
-	private double property_area;
+	private double propertyarea;
 
-	private double property_price;
+	private double propertyprice;
 
 	
-	private String property_address;
+	private String propertyaddress;
 
 }

@@ -1,14 +1,9 @@
 package com.apnahomeloan.app.controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-
-import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,22 +12,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.apnahomeloan.app.model.Applicant;
 import com.apnahomeloan.app.model.Customer;
-import com.apnahomeloan.app.model.Documents;
 import com.apnahomeloan.app.repository.ApplicantRepository;
 import com.apnahomeloan.app.repository.CustomerRepositary;
 import com.apnahomeloan.app.repository.DocumentRepository;
-import com.apnahomeloan.app.serviceinterface.ApplicantServiceI;
 import com.apnahomeloan.app.serviceinterface.CustomerServiceI;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -58,8 +45,8 @@ public class CustomerController
 						
 			Applicant app=api.findByApplicantid(applicantid);
 			
-			customer.setCustomer_name(app.getApplicant_name());
-			customer.setCustomer_email(app.getApplicant_email());
+			customer.setCustomername(app.getApplicantname());
+			customer.setCustomeremail(app.getApplicantemail());
 			customer.setApplicant(app);
 
 			Customer c=customerServiceI.saveCustomer(customer);
